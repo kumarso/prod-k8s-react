@@ -14,6 +14,14 @@ after_success:
  - docker build -t ruchikong/prod-server ./server
  - docker build -t ruchikong/prod-nginx ./nginx
  - docker build -t ruchikong/prod-worker ./worker
+# login to docker CLI
+ - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
+ # take images and push to docker hub
+  
+ - docker push ruchikong/prod-client
+ - docker push ruchikong/prod-server
+ - docker push ruchikong/prod-nginx
+ - docker push ruchikong/prod-worker
 
 
 
