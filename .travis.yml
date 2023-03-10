@@ -26,10 +26,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "prod-react"
-  env: "Prodreact-env"
+  app: "prod-docker"
+  env: "Proddocker-env"
   bucket_name: "elasticbeanstalk-us-east-2-589385579757"
-  bucket-path: "prod-react"
+  bucket-path: "prod-docker"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
