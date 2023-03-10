@@ -1,0 +1,42 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "client",
+        "image": "ruchikong/prod-client",
+        "hostname": "client",
+        "essential": false
+      },
+
+      {
+        "name": "server",
+        "image": "ruchikong/prod-server",
+        "hostname": "api",
+        "essential":false
+
+
+      },
+
+      {
+        "name": "worker",
+        "image": "ruchikong/prod-worker",
+        "hostname": "worker",
+        "essential":false
+      },
+
+     {
+        "name": "nginx",
+        "image": "ruchikong/prod-nginx",
+        "essential": true,
+        "hostname": "nginx",
+        "portMappings": [
+
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ]
+     }
+
+    ]
+}

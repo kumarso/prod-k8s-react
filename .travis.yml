@@ -23,6 +23,19 @@ after_success:
  - docker push ruchikong/prod-nginx
  - docker push ruchikong/prod-worker
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "prod-react"
+  env: "Prodreact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-589385579757"
+  bucket-path: "prod-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
+
 
 
 
