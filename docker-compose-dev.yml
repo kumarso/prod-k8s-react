@@ -35,8 +35,8 @@ services:
       - PGPASSWORD=password
       - PGPORT=5432
   client:
+    image: ruchikong/react-test
     build:
-      image: ruchikong/react-test
       dockerfile: Dockerfile.dev
       context: ./client
     volumes:

@@ -5,7 +5,7 @@ services:
 
 before_install:
 #  - docker build -t ruchikong/react-test -f ./client/Dockerfile.dev ./client
-  - docker-compose -f docker-compose-dev.yml up --build
+   - docker-compose -f docker-compose-dev.yml up --build
 
 script:
  - docker run  -e CI=true ruchikong/react-test npm test
