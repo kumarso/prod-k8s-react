@@ -17,7 +17,7 @@ after_success:
 # - docker build -t ruchikong/prod-server ./server
 # - docker build -t ruchikong/prod-nginx ./nginx
 # - docker build -t ruchikong/prod-worker ./worker
-
+  - docker-compose -f docker-compose-dev.yml up
   - docker-compose -f docker-compose-dev.yml up --build
   - docker-compose -f docker-compose-dev.yml down
 
