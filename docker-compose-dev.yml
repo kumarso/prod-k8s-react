@@ -32,7 +32,6 @@ services:
       - PGPASSWORD=password
       - PGPORT=5432
   client:
-    image: 'react-test'
     environment:
       - WDS_SOCKET_PORT=0
     build:
