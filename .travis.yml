@@ -5,21 +5,21 @@ services:
   - docker-compose
 
 before_install:
-  - docker build -t ruchikong/react-test -f ./client/Dockerfile.dev ./client
+#  - docker build -t ruchikong/react-test -f ./client/Dockerfile.dev ./client
 #  - docker-compose -f docker-compose-dev.yml up
-#  - docker-compose -f docker-compose-dev.yml up --build
+  - docker-compose -f docker-compose-dev.yml up --build
 
 script:
  - docker run  -e CI=true ruchikong/react-test npm test
 
 after_success:
-# - docker build -t ruchikong/prod-client ./client
-# - docker build -t ruchikong/prod-server ./server
-# - docker build -t ruchikong/prod-nginx ./nginx
-# - docker build -t ruchikong/prod-worker ./worker
+ - docker build -t ruchikong/prod-client ./client
+ - docker build -t ruchikong/prod-server ./server
+ - docker build -t ruchikong/prod-nginx ./nginx
+ - docker build -t ruchikong/prod-worker ./worker
 
-  - docker-compose -f docker-compose.yml up --build
-  - docker-compose -f docker-compose.yml down
+#  - docker-compose -f docker-compose.yml up --build
+#  - docker-compose -f docker-compose.yml down
 
 # login to docker CLI
  - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
