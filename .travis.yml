@@ -12,11 +12,10 @@ script:
  - docker run  -e CI=true ruchikong/react-test npm test
 
 after_success:
-# - docker build -t ruchikong/prod-client ./client
-# - docker build -t ruchikong/prod-server ./server
-# - docker build -t ruchikong/prod-nginx ./nginx
-# - docker build -t ruchikong/prod-worker ./worker
-  - docker-compose up --build
+ - docker build -t ruchikong/prod-client ./client
+ - docker build -t ruchikong/prod-server ./server
+ - docker build -t ruchikong/prod-nginx ./nginx
+ - docker build -t ruchikong/prod-worker ./worker
 
 # login to docker CLI
  - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
